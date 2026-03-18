@@ -28,6 +28,18 @@
   --hover-text:#fff;
   color-scheme:dark;
 }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg:#f6f1eb;
+    --surface:#ece5dc;
+    --border:#ddd5cb;
+    --text:#2a2420;
+    --text2:#6b5e53;
+    --text3:#a89888;
+    --hover-text:#1a1410;
+    color-scheme:light;
+  }
+}
 html[data-theme="light"]{
   --bg:#f6f1eb;
   --surface:#ece5dc;
@@ -156,12 +168,20 @@ header h1{
 .gem-light{mix-blend-mode:darken;opacity:0;width:53px;height:53px;margin-left:-3px;margin-top:-7px;filter:brightness(1.02) blur(0.02px);clip-path:inset(2% 2% 2% 10%);pointer-events:none}
 html[data-theme="light"] .gem-dark{opacity:0;pointer-events:none}
 html[data-theme="light"] .gem-light{opacity:1;pointer-events:auto}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .gem-dark{opacity:0;pointer-events:none}
+  :root:not([data-theme]) .gem-light{opacity:1;pointer-events:auto}
+}
 .idea-gem{cursor:pointer;transition:opacity 0.35s ease,transform 0.15s ease}
 .idea-gem:hover{transform:scale(1.1)}
 .idea-gem:active{transform:scale(0.9)}
 #idea{transition:opacity 0.25s ease}
 html[data-theme="light"] .gem-dark{opacity:0}
 html[data-theme="light"] .gem-light{opacity:1}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .gem-dark{opacity:0}
+  :root:not([data-theme]) .gem-light{opacity:1}
+}
 #idea{padding-left:46px}
 
 /* Category row */
@@ -241,6 +261,9 @@ html[data-theme="light"] .gem-light{opacity:1}
 }
 html[data-theme="light"] .tool-favicon.invert-dark{
   filter:none;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .tool-favicon.invert-dark{ filter:none; }
 }
 
 .tool-name{
@@ -341,6 +364,12 @@ footer{
 html[data-theme="light"] .shader-wrap{
   mix-blend-mode:multiply;
   filter:blur(4px) invert(1) hue-rotate(180deg) saturate(1.4) contrast(1.3);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .shader-wrap{
+    mix-blend-mode:multiply;
+    filter:blur(4px) invert(1) hue-rotate(180deg) saturate(1.4) contrast(1.3);
+  }
 }
 
 @media(max-width:640px){
@@ -660,8 +689,15 @@ function setTheme(mode) {
   if (window._shaderNewSeed) window._shaderNewSeed();
 }
 (function() {
-  const saved = localStorage.getItem('theme') || 'dark';
-  setTheme(saved);
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    setTheme(saved);
+  } else {
+    // Sync with system theme on first visit
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const mode = systemDark ? 'dark' : 'light';
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === mode));
+  }
 })();
 
 // Section focus on hover (title or tool only)
