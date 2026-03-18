@@ -115,13 +115,6 @@ header h1{
   gap:2px;
   transition:opacity 0.15s;
 }
-.search-field:focus ~ .search-shortcut{
-  opacity:0;
-}
-.search-shortcut.show-enter,
-.search-field:focus ~ .search-shortcut.show-enter{
-  opacity:1;
-}
 .search-shortcut kbd{
   background:var(--border);
   padding:1px 5px;
@@ -130,12 +123,6 @@ header h1{
   font-size:9px;
   color:var(--text2);
 }
-.hint-label{
-  font-size:9px;
-  color:var(--text3);
-  margin-left:2px;
-}
-
 /* Dimmed state for non-matching tools */
 .tool-card{
   transition:opacity 0.25s ease;
@@ -225,7 +212,7 @@ html[data-theme="light"] .gem-light{opacity:1}
   padding:2px 0;
   text-decoration:none;
   color:var(--text2);
-  transition:color 0.1s;
+  transition:color 0.1s, opacity 0.25s ease;
 }
 .tool-card:hover{color:var(--hover-text)}
 
@@ -248,7 +235,21 @@ html[data-theme="light"] .gem-light{opacity:1}
 }
 .tooltip.visible{opacity:1}
 .tooltip .tt-desc{color:var(--text);display:block;margin-bottom:12px}
-.tooltip .tt-meta{display:flex;gap:5px;flex-wrap:wrap}
+.tooltip .tt-meta{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.tooltip .tt-open{margin-left:auto;display:flex;gap:2px}
+.tooltip .tt-open kbd{background:var(--border);padding:2px 7px;border-radius:4px;font-family:inherit;font-size:10px;color:var(--text3)}
+.tooltip .tt-open .shimmer{
+  background:linear-gradient(90deg,#ff6b6b,#ffa94d,#ffd43b,#69db7c,#4dabf7,#b197fc,#ff6b6b);
+  background-size:200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shimmer 1.2s linear infinite;
+}
+@keyframes shimmer{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
 .tooltip .tt-badge{
   font-size:10px;
   color:var(--text2);
@@ -398,7 +399,7 @@ html[data-theme="light"] .shader-wrap{
 
 <div class="container">
   <header>
-    <h1>Design Engineer Tools.</h1>
+    <h1>Everything in its Vibe Place</h1>
     <div class="theme-toggle">
       <button class="theme-btn active" data-theme="dark" onclick="setTheme('dark')">Dark</button>
       <button class="theme-btn" data-theme="light" onclick="setTheme('light')">Light</button>
@@ -714,66 +715,82 @@ function setTheme(mode) {
 
 // Section focus on hover (title or tool only)
 const mainEl = document.getElementById('main');
+let _hoverTimer = null;
+function clearHover() {
+  mainEl.classList.remove('has-hover');
+  mainEl.querySelectorAll('.category.hovered').forEach(c => c.classList.remove('hovered'));
+}
 mainEl.addEventListener('mouseover', e => {
   const target = e.target.closest('.tool-card');
   if (!target) return;
+  clearTimeout(_hoverTimer);
   const cat = target.closest('.category');
   if (!cat) return;
   mainEl.classList.add('has-hover');
   mainEl.querySelectorAll('.category').forEach(c => c.classList.toggle('hovered', c === cat));
 });
 mainEl.addEventListener('mouseleave', () => {
-  mainEl.classList.remove('has-hover');
-  mainEl.querySelectorAll('.category.hovered').forEach(c => c.classList.remove('hovered'));
+  clearTimeout(_hoverTimer);
+  clearHover();
 });
-// Also clear when moving to gaps between sections
 mainEl.addEventListener('mouseout', e => {
   if (!e.relatedTarget || !e.relatedTarget.closest('.tool-card')) {
-    if (!e.relatedTarget || !e.relatedTarget.closest('.category')) {
-      mainEl.classList.remove('has-hover');
-      mainEl.querySelectorAll('.category.hovered').forEach(c => c.classList.remove('hovered'));
-    }
+    clearTimeout(_hoverTimer);
+    _hoverTimer = setTimeout(clearHover, 250);
   }
 });
 
 // Tooltip (desktop only)
+var showTooltipForCard = null;
+var hideTooltip = null;
+var _tipLocked = false;
 if (window.matchMedia('(min-width:641px)').matches) {
   const tip = document.createElement('div');
   tip.className = 'tooltip';
   document.body.appendChild(tip);
   let timer = null;
 
-  document.addEventListener('mouseover', e => {
-    const card = e.target.closest('.tool-card');
-    if (!card || !card.dataset.d) { clearTimeout(timer); tip.classList.remove('visible'); return; }
+  showTooltipForCard = function(card, showOpen) {
+    if (!card || !card.dataset.d) return;
     clearTimeout(timer);
-    timer = setTimeout(() => {
-      const badges = card.dataset.p.split(' · ').map(b => `<span class="tt-badge">${b}</span>`).join('');
-      tip.innerHTML = `<span class="tt-desc">${card.dataset.d}</span><span class="tt-meta">${badges}</span>`;
-      const r = card.getBoundingClientRect();
-      let x = r.left;
-      let y = r.bottom + 6;
-      tip.style.left = x + 'px';
-      tip.style.top = y + 'px';
-      tip.classList.add('visible');
-      // Keep tooltip in viewport
-      requestAnimationFrame(() => {
-        const tr = tip.getBoundingClientRect();
-        if (tr.right > window.innerWidth - 12) tip.style.left = (window.innerWidth - tr.width - 12) + 'px';
-        if (tr.bottom > window.innerHeight - 12) { tip.style.top = (r.top - tr.height - 6) + 'px'; }
-      });
-    }, 400);
+    const badges = card.dataset.p.split(' · ').map(b => `<span class="tt-badge">${b}</span>`).join('');
+    const openHint = showOpen ? '<span class="tt-open"><kbd><span class="shimmer" style="display:inline-block;transform:translate(2px,3px)">&#x21B5;</span></kbd><kbd><span class="shimmer">Open</span></kbd></span>' : '';
+    tip.innerHTML = `<span class="tt-desc">${card.dataset.d}</span><span class="tt-meta">${badges}${openHint}</span>`;
+    const r = card.getBoundingClientRect();
+    tip.style.left = r.left + 'px';
+    tip.style.top = (r.bottom + 6) + 'px';
+    tip.classList.add('visible');
+    requestAnimationFrame(() => {
+      const tr = tip.getBoundingClientRect();
+      if (tr.right > window.innerWidth - 12) tip.style.left = (window.innerWidth - tr.width - 12) + 'px';
+      if (tr.bottom > window.innerHeight - 12) { tip.style.top = (r.top - tr.height - 6) + 'px'; }
+    });
+  };
+
+  hideTooltip = function() {
+    clearTimeout(timer);
+    tip.classList.remove('visible');
+  };
+
+  document.addEventListener('mouseover', e => {
+    if (_tipLocked) return;
+    const card = e.target.closest('.tool-card');
+    if (!card || !card.dataset.d) { hideTooltip(); return; }
+    clearTimeout(timer);
+    timer = setTimeout(() => showTooltipForCard(card), 400);
   });
 
   document.addEventListener('mouseout', e => {
+    if (_tipLocked) return;
     const card = e.target.closest('.tool-card');
-    if (card) { clearTimeout(timer); tip.classList.remove('visible'); }
+    if (card) hideTooltip();
   });
 }
 
 
 
 
+var _searchTipTimer = null;
 function onSearch(q) {
   q = q.toLowerCase().trim();
   document.querySelectorAll('.category').forEach(cat => {
@@ -790,14 +807,16 @@ function onSearch(q) {
     cat.classList.toggle('all-dimmed', !anyVisible && !!q);
   });
   const visible = document.querySelectorAll('.tool-card:not(.dimmed)');
-  const hint = document.getElementById('searchHint');
+  clearTimeout(_searchTipTimer);
   if (q && visible.length === 1) {
-    hint.innerHTML = '<kbd>&#x21B5;</kbd><span class="hint-label">Open</span>';
-    hint.classList.add('show-enter');
+    _searchTipTimer = setTimeout(() => {
+      if (showTooltipForCard) { showTooltipForCard(visible[0], true); _tipLocked = true; }
+    }, 400);
   } else {
-    hint.innerHTML = '<kbd>&#8984;</kbd><kbd>F</kbd>';
-    hint.classList.remove('show-enter');
+    _tipLocked = false;
+    if (hideTooltip) hideTooltip();
   }
+  document.querySelector('.idea').style.opacity = q ? '0.12' : '';
 }
 </script>
 
