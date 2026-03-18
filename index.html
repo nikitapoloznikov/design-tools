@@ -130,6 +130,11 @@ header h1{
   font-size:9px;
   color:var(--text2);
 }
+.hint-label{
+  font-size:9px;
+  color:var(--text3);
+  margin-left:2px;
+}
 
 /* Dimmed state for non-matching tools */
 .tool-card{
@@ -787,7 +792,7 @@ function onSearch(q) {
   const visible = document.querySelectorAll('.tool-card:not(.dimmed)');
   const hint = document.getElementById('searchHint');
   if (q && visible.length === 1) {
-    hint.innerHTML = '<kbd>&#x21B5;</kbd>';
+    hint.innerHTML = '<kbd>&#x21B5;</kbd><span class="hint-label">Open</span>';
     hint.classList.add('show-enter');
   } else {
     hint.innerHTML = '<kbd>&#8984;</kbd><kbd>F</kbd>';
