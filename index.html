@@ -466,7 +466,7 @@ const TOOLS = [
     { name: "NumberFlow", url: "https://number-flow.barvian.me/", d: "React component for smooth, animated number transitions.", p: "Free" },
     { name: "React Bits", url: "https://www.reactbits.dev/", d: "Curated collection of animated React components ready to copy-paste.", p: "Free", m: true },
   ]},
-  { cat: "Code Assist", tools: [
+  { cat: "Code", tools: [
     { name: "Aider", url: "https://aider.chat/", d: "Open-source AI pair programming tool that works in your terminal.", p: "Free", m: true },
     { name: "Bolt.new", url: "https://bolt.new/", d: "AI-powered full-stack web app builder that runs entirely in the browser.", p: "Free & Paid", m: true },
     { name: "ChatGPT Canvas", url: "https://openai.com/index/introducing-canvas/", d: "Collaborative coding and writing surface inside ChatGPT.", p: "Paid" },
@@ -484,6 +484,7 @@ const TOOLS = [
     { name: "Playwright", url: "https://playwright.dev/", d: "Cross-browser end-to-end testing and automation framework by Microsoft.", p: "Free", m: true },
     { name: "Replit", url: "https://replit.com/", d: "Browser-based IDE with AI-assisted coding and instant deployment.", p: "Free & Paid", m: true },
     { name: "v0 by Vercel", url: "https://v0.dev/", d: "AI tool that generates React UI from text prompts and images.", p: "Free & Paid", m: true },
+    { name: "Warp", url: "https://www.warp.dev/", d: "Modern terminal with AI command search, blocks, and collaboration.", p: "Free & Paid", m: true },
     { name: "Windsurf", url: "https://codeium.com/windsurf", d: "AI-powered code editor with agentic coding flows.", p: "Free & Paid", m: true },
     { name: "Zed", url: "https://zed.dev/agentic", d: "High-performance code editor with built-in AI assistant.", p: "Free", m: true },
   ]},
@@ -507,13 +508,12 @@ const TOOLS = [
   ]},
   { cat: "Motion", tools: [
     { name: "Cavalry", url: "https://cavalry.scenegroup.co/", d: "Procedural 2D motion graphics and animation application.", p: "Paid", m: true },
+    { name: "Easing Editor", url: "https://animejs.com/easing-editor", d: "Visual editor for creating custom CSS and JS animation easing curves.", p: "Free" },
+    { name: "Easing Functions", url: "https://easings.net/", d: "Cheat sheet of common easing functions with visual previews and code.", p: "Free" },
     { name: "Jitter", url: "https://jitter.video/", d: "Browser-based motion design tool for creating animated content.", p: "Free & Paid" },
     { name: "Lottie Creator", url: "https://lottiefiles.com/lottie-creator", d: "Visual editor for creating and editing Lottie animations.", p: "Free & Paid", m: true },
     { name: "Lottielab", url: "https://www.lottielab.com/", d: "Design tool for creating lightweight Lottie and dotLottie animations.", p: "Free & Paid" },
     { name: "Theatre.js", url: "https://www.theatrejs.com/", d: "Open-source animation library and visual editor for JS and Three.js.", p: "Free" },
-  ]},
-  { cat: "Screen Recording", tools: [
-    { name: "Recordly", url: "https://recordly.dev/", d: "Lightweight macOS screen recorder for quick captures and demos.", p: "Free & Paid" },
   ]},
   { cat: "Audio", tools: [
     { name: "ElevenLabs", url: "https://elevenlabs.io/", d: "AI voice synthesis and cloning platform for realistic speech generation.", p: "Free & Paid", m: true },
@@ -534,7 +534,7 @@ const TOOLS = [
     { name: "gltfpack", url: "https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md", d: "Command-line tool for optimizing and compressing glTF files.", p: "Free" },
     { name: "Needle Viewer", url: "https://viewer.needle.tools/", d: "Browser-based glTF viewer with lighting, animation, and debug tools.", p: "Free", m: true },
   ]},
-  { cat: "Digital Fashion", tools: [
+  { cat: "Fashion", tools: [
     { name: "CLO", url: "https://www.clo3d.com/", d: "3D garment design and simulation software for fashion industry.", p: "Paid", m: true },
     { name: "Marvelous Designer", url: "https://www.marvelousdesigner.com/", d: "3D clothing simulation tool used in games, film, and fashion.", p: "Paid" },
     { name: "Style3D", url: "https://www.linctex.com/", d: "Digital fashion platform for 3D garment design and virtual fitting.", p: "Paid" },
@@ -554,22 +554,18 @@ const TOOLS = [
     { name: "Muse", url: "https://museapp.com/", d: "Spatial canvas app for deep thinking, research, and ideation on iPad and Mac.", p: "Paid" },
     { name: "tldraw", url: "https://www.tldraw.com/", d: "Open-source infinite canvas whiteboard with a clean minimal interface.", p: "Free", m: true },
   ]},
-  { cat: "Web Utility", tools: [
+  { cat: "Utility", tools: [
     { name: "Color.review", url: "https://color.review/", d: "Tool for checking foreground/background color contrast accessibility.", p: "Free" },
-    { name: "Easing Editor", url: "https://animejs.com/easing-editor", d: "Visual editor for creating custom CSS and JS animation easing curves.", p: "Free" },
-    { name: "Easing Functions", url: "https://easings.net/", d: "Cheat sheet of common easing functions with visual previews and code.", p: "Free" },
     { name: "Easing Gradients", url: "https://larsenwork.com/easing-gradients/", d: "Tool for creating smooth, perceptually uniform CSS gradients.", p: "Free" },
-    { name: "OKLCH Color Picker", url: "https://oklch.com/", d: "Perceptually uniform color picker using the OKLCH color space.", p: "Free" },
-    { name: "Ray.so", url: "https://ray.so/", d: "Beautiful code snippet image generator with syntax highlighting.", p: "Free" },
-    { name: "RegExr", url: "https://regexr.com/", d: "Online tool for learning, building, and testing regular expressions.", p: "Free" },
-    { name: "SVGOMG", url: "https://jakearchibald.github.io/svgomg/", d: "GUI for SVGO — optimizes and minifies SVG files in the browser.", p: "Free" },
-  ]},
-  { cat: "Desktop Utility", tools: [
     { name: "LocalSend", url: "https://localsend.org/", d: "Open-source cross-platform file sharing over local network, no internet needed.", p: "Free" },
+    { name: "OKLCH Color Picker", url: "https://oklch.com/", d: "Perceptually uniform color picker using the OKLCH color space.", p: "Free" },
     { name: "Parsec", url: "https://parsec.app/", d: "Ultra-low latency remote desktop streaming for work and gaming.", p: "Free & Paid" },
+    { name: "Ray.so", url: "https://ray.so/", d: "Beautiful code snippet image generator with syntax highlighting.", p: "Free" },
     { name: "Raycast", url: "https://www.raycast.com/", d: "Productivity launcher for macOS with extensions, snippets, and AI.", p: "Free & Paid", m: true },
+    { name: "Recordly", url: "https://recordly.dev/", d: "Lightweight macOS screen recorder for quick captures and demos.", p: "Free & Paid" },
+    { name: "RegExr", url: "https://regexr.com/", d: "Online tool for learning, building, and testing regular expressions.", p: "Free" },
     { name: "ShareX", url: "https://getsharex.com/", d: "Open-source screen capture and file sharing tool for Windows.", p: "Free" },
-    { name: "Warp", url: "https://www.warp.dev/", d: "Modern terminal with AI command search, blocks, and collaboration.", p: "Free & Paid", m: true },
+    { name: "SVGOMG", url: "https://jakearchibald.github.io/svgomg/", d: "GUI for SVGO — optimizes and minifies SVG files in the browser.", p: "Free" },
   ]},
   { cat: "Emoji", tools: [
     { name: "MakeEmoji", url: "https://makeemoji.com/", d: "Tool for creating custom animated emoji and stickers.", p: "Free & Paid" },
