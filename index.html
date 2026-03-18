@@ -451,27 +451,26 @@ const TOOLS = [
     { name: "NumberFlow", url: "https://number-flow.barvian.me/", d: "React component for smooth, animated number transitions.", p: "Free" },
     { name: "React Bits", url: "https://www.reactbits.dev/", d: "Curated collection of animated React components ready to copy-paste.", p: "Free", m: true },
   ]},
-  { cat: "Code Gen", tools: [
+  { cat: "Code Assist", tools: [
+    { name: "Aider", url: "https://aider.chat/", d: "Open-source AI pair programming tool that works in your terminal.", p: "Free", m: true },
     { name: "Bolt.new", url: "https://bolt.new/", d: "AI-powered full-stack web app builder that runs entirely in the browser.", p: "Free / Paid", m: true },
     { name: "ChatGPT Canvas", url: "https://openai.com/index/introducing-canvas/", d: "Collaborative coding and writing surface inside ChatGPT.", p: "Paid" },
     { name: "Claude Code", url: "https://claude.com/product/claude-code", d: "Agentic CLI tool for coding with Claude directly in your terminal.", p: "Paid", m: true },
-    { name: "Lovable", url: "https://lovable.dev/", d: "AI full-stack engineer that builds production web apps from prompts.", p: "Free / Paid", m: true },
-    { name: "OpenAI Codex", url: "https://openai.com/codex/", d: "Cloud-based AI coding agent that runs tasks in a sandbox.", p: "Paid", m: true },
-    { name: "Replit", url: "https://replit.com/", d: "Browser-based IDE with AI-assisted coding and instant deployment.", p: "Free / Paid", m: true },
-    { name: "v0 by Vercel", url: "https://v0.dev/", d: "AI tool that generates React UI from text prompts and images.", p: "Free / Paid", m: true },
-  ]},
-  { cat: "Code Assist", tools: [
-    { name: "Aider", url: "https://aider.chat/", d: "Open-source AI pair programming tool that works in your terminal.", p: "Free", m: true },
     { name: "Cline", url: "https://cline.bot/", d: "Autonomous AI coding agent as a VS Code extension.", p: "Free", m: true },
+    { name: "cmux", url: "https://cmux.com/", d: "Native macOS terminal for managing multiple AI coding agents with notifications and context.", p: "Free", m: true },
+    { name: "Codex", url: "https://openai.com/codex/", d: "OpenAI's cloud-based coding agent for autonomous task execution.", p: "Paid", m: true },
     { name: "Continue", url: "https://www.continue.dev/", d: "Open-source AI code assistant for VS Code and JetBrains.", p: "Free", m: true },
     { name: "Cursor", url: "https://www.cursor.com/", d: "AI-first code editor built on VS Code with deep model integration.", p: "Free / Paid", m: true },
+    { name: "Ghostty", url: "https://ghostty.org/", d: "Fast, native terminal emulator built with Zig for macOS and Linux.", p: "Free", m: true },
     { name: "GitHub Copilot", url: "https://github.com/features/copilot", d: "AI pair programmer that suggests code inline as you type.", p: "Free / Paid", m: true },
+    { name: "Lovable", url: "https://lovable.dev/", d: "AI full-stack engineer that builds production web apps from prompts.", p: "Free / Paid", m: true },
+    { name: "Open Claw", url: "https://openclaw.ai/", d: "Open-source personal AI assistant that runs locally and works across apps and browsers.", p: "Free", m: true },
+    { name: "OpenAI Codex", url: "https://openai.com/codex/", d: "Cloud-based AI coding agent that runs tasks in a sandbox.", p: "Paid", m: true },
+    { name: "Playwright", url: "https://playwright.dev/", d: "Cross-browser end-to-end testing and automation framework by Microsoft.", p: "Free", m: true },
+    { name: "Replit", url: "https://replit.com/", d: "Browser-based IDE with AI-assisted coding and instant deployment.", p: "Free / Paid", m: true },
+    { name: "v0 by Vercel", url: "https://v0.dev/", d: "AI tool that generates React UI from text prompts and images.", p: "Free / Paid", m: true },
     { name: "Windsurf", url: "https://codeium.com/windsurf", d: "AI-powered code editor with agentic coding flows.", p: "Free / Paid", m: true },
     { name: "Zed", url: "https://zed.dev/agentic", d: "High-performance code editor with built-in AI assistant.", p: "Free", m: true },
-    { name: "Ghostty", url: "https://ghostty.org/", d: "Fast, native terminal emulator built with Zig for macOS and Linux.", p: "Free", m: true },
-    { name: "Codex", url: "https://openai.com/codex/", d: "OpenAI's cloud-based coding agent for autonomous task execution.", p: "Paid", m: true },
-    { name: "cmux", url: "https://cmux.com/", d: "Native macOS terminal for managing multiple AI coding agents with notifications and context.", p: "Free", m: true },
-    { name: "Playwright", url: "https://playwright.dev/", d: "Cross-browser end-to-end testing and automation framework by Microsoft.", p: "Free", m: true },
   ]},
   { cat: "Interface", tools: [
     { name: "Figma", url: "https://figma.com", d: "Collaborative interface design tool with prototyping and dev mode.", p: "Free / Paid", m: true },
@@ -564,10 +563,10 @@ const TOOLS = [
 
 // Some sites block Google's favicon service — use direct favicon URLs
 const DIRECT_FAVICONS = {
-  'aider.chat': 'https://aider.chat/assets/favicon.ico',
+  'aider.chat': 'https://aider.chat/assets/icons/favicon-32x32.png',
   'bitspace.sh': 'https://bitspace.sh/favicon.ico',
   'www.shadertoy.com': 'https://www.shadertoy.com/favicon.ico',
-  'viewer.needle.tools': 'https://viewer.needle.tools/favicon.ico',
+  'viewer.needle.tools': 'https://needle.tools/favicon.ico',
   'jakearchibald.github.io': 'https://jakearchibald.github.io/svgomg/favicon.ico',
   'cmux.com': 'https://cmux.com/icon.png',
 };
@@ -592,6 +591,7 @@ const DARK_FAVICONS = new Set([
   'mobbin.com','www.unrealengine.com',
   'v0.dev',
   'threejs.org',
+  'www.framer.com',
 ]);
 
 // Favicons that are truly white/light — need inverting in light mode only
