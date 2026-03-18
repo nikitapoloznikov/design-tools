@@ -396,7 +396,7 @@ html[data-theme="light"] .shader-wrap{
     </div>
     <div class="search-wrap">
       <input type="text" class="search-field" id="searchField" placeholder="Search..." oninput="onSearch(this.value)">
-      <div class="search-shortcut"><kbd>&#x21B5;</kbd></div>
+      <div class="search-shortcut" id="searchHint"><kbd>&#8984;</kbd><kbd>F</kbd></div>
     </div>
   </header>
   <main id="main"></main>
@@ -780,6 +780,13 @@ function onSearch(q) {
     });
     cat.classList.toggle('all-dimmed', !anyVisible && !!q);
   });
+  const visible = document.querySelectorAll('.tool-card:not(.dimmed)');
+  const hint = document.getElementById('searchHint');
+  if (q && visible.length === 1) {
+    hint.innerHTML = '<kbd>&#x21B5;</kbd>';
+  } else {
+    hint.innerHTML = '<kbd>&#8984;</kbd><kbd>F</kbd>';
+  }
 }
 </script>
 
