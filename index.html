@@ -239,19 +239,6 @@ html[data-theme="light"] .gem-light{opacity:1}
 .tooltip .tt-open{margin-left:auto;display:flex;gap:5px}
 .tooltip .tt-open kbd{
   background:var(--border);padding:2px 7px;border-radius:4px;font-family:inherit;font-size:10px;color:var(--text3);
-  position:relative;
-}
-.tooltip .tt-open kbd::before{
-  content:'';
-  position:absolute;
-  inset:-2px;
-  border-radius:4px;
-  background:linear-gradient(90deg,#b197fc,#4dabf7,#f06595,#b197fc);
-  background-size:200% 100%;
-  animation:shimmer 1.2s linear infinite;
-  opacity:0.4;
-  filter:blur(6px);
-  z-index:-1;
 }
 .tooltip .tt-open .shimmer{
   background:linear-gradient(90deg,#b197fc,#4dabf7,#f06595,#b197fc);
@@ -754,7 +741,7 @@ mainEl.addEventListener('mouseleave', () => {
 mainEl.addEventListener('mouseout', e => {
   if (!e.relatedTarget || !e.relatedTarget.closest('.tool-card')) {
     clearTimeout(_hoverTimer);
-    _hoverTimer = setTimeout(clearHover, 250);
+    _hoverTimer = setTimeout(clearHover, 190);
   }
 });
 
