@@ -396,7 +396,7 @@ html[data-theme="light"] .shader-wrap{
     </div>
     <div class="search-wrap">
       <input type="text" class="search-field" id="searchField" placeholder="Search..." oninput="onSearch(this.value)">
-      <div class="search-shortcut"><kbd>&#8984;</kbd><kbd>F</kbd></div>
+      <div class="search-shortcut"><kbd>&#x21B5;</kbd></div>
     </div>
   </header>
   <main id="main"></main>
@@ -666,6 +666,16 @@ document.addEventListener('keydown', e => {
       sf.blur();
     } else {
       sf.focus();
+    }
+    return;
+  }
+  if (e.key === 'Enter' && document.activeElement === sf) {
+    const visible = document.querySelectorAll('.tool-card:not(.dimmed)');
+    if (visible.length === 1) {
+      window.open(visible[0].href, '_blank');
+      sf.value = '';
+      onSearch('');
+      sf.blur();
     }
     return;
   }
