@@ -236,10 +236,25 @@ html[data-theme="light"] .gem-light{opacity:1}
 .tooltip.visible{opacity:1}
 .tooltip .tt-desc{color:var(--text);display:block;margin-bottom:12px}
 .tooltip .tt-meta{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.tooltip .tt-open{margin-left:auto;display:flex;gap:2px}
-.tooltip .tt-open kbd{background:var(--border);padding:2px 7px;border-radius:4px;font-family:inherit;font-size:10px;color:var(--text3)}
+.tooltip .tt-open{margin-left:auto;display:flex;gap:5px}
+.tooltip .tt-open kbd{
+  background:var(--border);padding:2px 7px;border-radius:4px;font-family:inherit;font-size:10px;color:var(--text3);
+  position:relative;
+}
+.tooltip .tt-open kbd::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:4px;
+  background:linear-gradient(90deg,#b197fc,#4dabf7,#f06595,#b197fc);
+  background-size:200% 100%;
+  animation:shimmer 1.2s linear infinite;
+  opacity:0.4;
+  filter:blur(6px);
+  z-index:-1;
+}
 .tooltip .tt-open .shimmer{
-  background:linear-gradient(90deg,#ff6b6b,#ffa94d,#ffd43b,#69db7c,#4dabf7,#b197fc,#ff6b6b);
+  background:linear-gradient(90deg,#b197fc,#4dabf7,#f06595,#b197fc);
   background-size:200% 100%;
   -webkit-background-clip:text;
   background-clip:text;
@@ -420,8 +435,8 @@ html[data-theme="light"] .shader-wrap{
 const TOOLS = [
   { cat: "Inspiration", tools: [
     { name: "60fps", url: "https://60fps.design/", d: "Curated gallery of smooth, high-performance web animations.", p: "Free" },
-    { name: "Awwwards", url: "https://www.awwwards.com/", d: "Web design awards platform showcasing the best digital experiences.", p: "Free / Paid" },
-    { name: "Cosmos", url: "https://www.cosmos.so/", d: "Visual bookmarking tool for designers to collect and organize references.", p: "Free / Paid" },
+    { name: "Awwwards", url: "https://www.awwwards.com/", d: "Web design awards platform showcasing the best digital experiences.", p: "Free & Paid" },
+    { name: "Cosmos", url: "https://www.cosmos.so/", d: "Visual bookmarking tool for designers to collect and organize references.", p: "Free & Paid" },
     { name: "Curated Design", url: "https://www.curated.design/", d: "Hand-picked collection of outstanding web design inspiration.", p: "Free" },
     { name: "Design Spells", url: "https://www.designspells.com/", d: "Catalog of delightful micro-interactions and UI details from real products.", p: "Free" },
     { name: "Game UI Database", url: "https://www.gameuidatabase.com/", d: "Searchable archive of screenshots from game user interfaces.", p: "Free" },
@@ -432,87 +447,87 @@ const TOOLS = [
     { name: "loadmo.re", url: "https://loadmo.re/", d: "Curated gallery of website loading animations and transitions.", p: "Free" },
     { name: "Minimal Gallery", url: "https://minimal.gallery/", d: "Collection of minimal, clean website designs for inspiration.", p: "Free" },
     { name: "Minimum", url: "https://mnmm.xyz/", d: "Gallery of visually striking and experimental website designs.", p: "Free" },
-    { name: "Mobbin", url: "https://mobbin.com/", d: "Extensive library of real mobile and web app UI patterns.", p: "Free / Paid" },
+    { name: "Mobbin", url: "https://mobbin.com/", d: "Extensive library of real mobile and web app UI patterns.", p: "Free & Paid" },
     { name: "Pinterest", url: "https://pinterest.com/", d: "Visual discovery platform for collecting and organizing ideas.", p: "Free", m: true },
     { name: "Rebrand", url: "https://www.rebrand.gallery/", d: "Showcase of notable brand identity redesigns and visual evolutions.", p: "Free" },
     { name: "Saaspo", url: "https://saaspo.com/", d: "Curated collection of the best SaaS website designs.", p: "Free" },
-    { name: "SearchSystem", url: "https://searchsystem.co/", d: "Design reference archive spanning graphic, product, and digital design.", p: "Free / Paid" },
+    { name: "SearchSystem", url: "https://searchsystem.co/", d: "Design reference archive spanning graphic, product, and digital design.", p: "Free & Paid" },
     { name: "SEESAW", url: "https://www.seesaw.website/", d: "Curated gallery of immersive and interactive website experiences.", p: "Free" },
     { name: "Supahero", url: "https://www.supahero.io/", d: "Gallery of hero sections and above-the-fold website designs.", p: "Free" },
     { name: "D1S1", url: "https://d1s1.com/", d: "Curated design inspiration across digital and print media.", p: "Free" },
   ]},
   { cat: "Components", tools: [
-    { name: "21st.dev", url: "https://21st.dev/", d: "AI-powered component registry for React with copy-paste code.", p: "Free / Paid", m: true },
+    { name: "21st.dev", url: "https://21st.dev/", d: "AI-powered component registry for React with copy-paste code.", p: "Free & Paid", m: true },
     { name: "Component Gallery", url: "https://component.gallery/", d: "Collection of real-world UI component examples from design systems.", p: "Free" },
     { name: "Cursify", url: "https://cursify.vercel.app/", d: "Library of custom cursor effects and animations for websites.", p: "Free" },
     { name: "Fancy Components", url: "https://www.fancycomponents.dev/", d: "Collection of animated React components with beautiful interactions.", p: "Free" },
-    { name: "Framer University", url: "https://framer.university/resources", d: "Educational resources, templates, and components for Framer.", p: "Free / Paid" },
+    { name: "Framer University", url: "https://framer.university/resources", d: "Educational resources, templates, and components for Framer.", p: "Free & Paid" },
     { name: "Motion Primitives", url: "https://motion-primitives.com/", d: "Open-source animated React components built with Framer Motion.", p: "Free" },
     { name: "NumberFlow", url: "https://number-flow.barvian.me/", d: "React component for smooth, animated number transitions.", p: "Free" },
     { name: "React Bits", url: "https://www.reactbits.dev/", d: "Curated collection of animated React components ready to copy-paste.", p: "Free", m: true },
   ]},
   { cat: "Code Assist", tools: [
     { name: "Aider", url: "https://aider.chat/", d: "Open-source AI pair programming tool that works in your terminal.", p: "Free", m: true },
-    { name: "Bolt.new", url: "https://bolt.new/", d: "AI-powered full-stack web app builder that runs entirely in the browser.", p: "Free / Paid", m: true },
+    { name: "Bolt.new", url: "https://bolt.new/", d: "AI-powered full-stack web app builder that runs entirely in the browser.", p: "Free & Paid", m: true },
     { name: "ChatGPT Canvas", url: "https://openai.com/index/introducing-canvas/", d: "Collaborative coding and writing surface inside ChatGPT.", p: "Paid" },
     { name: "Claude Code", url: "https://claude.com/product/claude-code", d: "Agentic CLI tool for coding with Claude directly in your terminal.", p: "Paid", m: true },
     { name: "Cline", url: "https://cline.bot/", d: "Autonomous AI coding agent as a VS Code extension.", p: "Free", m: true },
     { name: "cmux", url: "https://cmux.com/", d: "Native macOS terminal for managing multiple AI coding agents with notifications and context.", p: "Free", m: true },
     { name: "Codex", url: "https://openai.com/codex/", d: "OpenAI's cloud-based coding agent for autonomous task execution.", p: "Paid", m: true },
     { name: "Continue", url: "https://www.continue.dev/", d: "Open-source AI code assistant for VS Code and JetBrains.", p: "Free", m: true },
-    { name: "Cursor", url: "https://www.cursor.com/", d: "AI-first code editor built on VS Code with deep model integration.", p: "Free / Paid", m: true },
+    { name: "Cursor", url: "https://www.cursor.com/", d: "AI-first code editor built on VS Code with deep model integration.", p: "Free & Paid", m: true },
     { name: "Ghostty", url: "https://ghostty.org/", d: "Fast, native terminal emulator built with Zig for macOS and Linux.", p: "Free", m: true },
-    { name: "GitHub Copilot", url: "https://github.com/features/copilot", d: "AI pair programmer that suggests code inline as you type.", p: "Free / Paid", m: true },
-    { name: "Lovable", url: "https://lovable.dev/", d: "AI full-stack engineer that builds production web apps from prompts.", p: "Free / Paid", m: true },
+    { name: "GitHub Copilot", url: "https://github.com/features/copilot", d: "AI pair programmer that suggests code inline as you type.", p: "Free & Paid", m: true },
+    { name: "Lovable", url: "https://lovable.dev/", d: "AI full-stack engineer that builds production web apps from prompts.", p: "Free & Paid", m: true },
     { name: "Open Claw", url: "https://openclaw.ai/", d: "Open-source personal AI assistant that runs locally and works across apps and browsers.", p: "Free", m: true },
     { name: "OpenAI Codex", url: "https://openai.com/codex/", d: "Cloud-based AI coding agent that runs tasks in a sandbox.", p: "Paid", m: true },
     { name: "Playwright", url: "https://playwright.dev/", d: "Cross-browser end-to-end testing and automation framework by Microsoft.", p: "Free", m: true },
-    { name: "Replit", url: "https://replit.com/", d: "Browser-based IDE with AI-assisted coding and instant deployment.", p: "Free / Paid", m: true },
-    { name: "v0 by Vercel", url: "https://v0.dev/", d: "AI tool that generates React UI from text prompts and images.", p: "Free / Paid", m: true },
-    { name: "Windsurf", url: "https://codeium.com/windsurf", d: "AI-powered code editor with agentic coding flows.", p: "Free / Paid", m: true },
+    { name: "Replit", url: "https://replit.com/", d: "Browser-based IDE with AI-assisted coding and instant deployment.", p: "Free & Paid", m: true },
+    { name: "v0 by Vercel", url: "https://v0.dev/", d: "AI tool that generates React UI from text prompts and images.", p: "Free & Paid", m: true },
+    { name: "Windsurf", url: "https://codeium.com/windsurf", d: "AI-powered code editor with agentic coding flows.", p: "Free & Paid", m: true },
     { name: "Zed", url: "https://zed.dev/agentic", d: "High-performance code editor with built-in AI assistant.", p: "Free", m: true },
   ]},
   { cat: "Interface", tools: [
-    { name: "Figma", url: "https://figma.com", d: "Collaborative interface design tool with prototyping and dev mode.", p: "Free / Paid", m: true },
-    { name: "Framer", url: "https://www.framer.com/", d: "No-code website builder with design-tool-level creative control.", p: "Free / Paid", m: true },
+    { name: "Figma", url: "https://figma.com", d: "Collaborative interface design tool with prototyping and dev mode.", p: "Free & Paid", m: true },
+    { name: "Framer", url: "https://www.framer.com/", d: "No-code website builder with design-tool-level creative control.", p: "Free & Paid", m: true },
     { name: "Penpot", url: "https://penpot.app/", d: "Open-source design and prototyping tool that works in the browser.", p: "Free", m: true },
-    { name: "Rive", url: "https://rive.app", d: "Interactive animation tool for creating runtime graphics for apps and web.", p: "Free / Paid", m: true },
+    { name: "Rive", url: "https://rive.app", d: "Interactive animation tool for creating runtime graphics for apps and web.", p: "Free & Paid", m: true },
   ]},
   { cat: "Visual", tools: [
     { name: "Bitspace", url: "https://bitspace.sh/", d: "Node-based visual programming environment for creative coding.", p: "Free" },
     { name: "cables", url: "https://cables.gl/", d: "Browser-based visual programming tool for creating interactive WebGL content.", p: "Free" },
     { name: "Nodes", url: "https://nodes.io/", d: "Visual canvas for creative coding, data visualization, and generative art.", p: "Paid" },
-    { name: "NodeToy", url: "https://nodetoy.co/", d: "Visual shader editor for creating GPU shaders without code.", p: "Free / Paid" },
+    { name: "NodeToy", url: "https://nodetoy.co/", d: "Visual shader editor for creating GPU shaders without code.", p: "Free & Paid" },
     { name: "Paper", url: "https://paper.design/", d: "Professional design tool for composing interfaces on a 2D canvas.", p: "Free", m: true },
     { name: "ShaderToy", url: "https://www.shadertoy.com/", d: "Community platform for creating and sharing GLSL fragment shaders.", p: "Free", m: true },
-    { name: "TouchDesigner", url: "https://derivative.ca/", d: "Node-based visual programming platform for real-time interactive media.", p: "Free / Paid", m: true },
+    { name: "TouchDesigner", url: "https://derivative.ca/", d: "Node-based visual programming platform for real-time interactive media.", p: "Free & Paid", m: true },
     { name: "Midjourney", url: "https://www.midjourney.com/", d: "AI image generation tool that creates detailed visuals from text prompts.", p: "Paid", m: true },
     { name: "Sora", url: "https://sora.chatgpt.com/", d: "OpenAI's AI model for generating realistic videos from text descriptions.", p: "Paid", m: true },
-    { name: "Unicorn.studio", url: "https://www.unicorn.studio/", d: "No-code WebGL editor for creating interactive visual effects for websites.", p: "Free / Paid" },
+    { name: "Unicorn.studio", url: "https://www.unicorn.studio/", d: "No-code WebGL editor for creating interactive visual effects for websites.", p: "Free & Paid" },
   ]},
   { cat: "Motion", tools: [
     { name: "Cavalry", url: "https://cavalry.scenegroup.co/", d: "Procedural 2D motion graphics and animation application.", p: "Paid", m: true },
-    { name: "Jitter", url: "https://jitter.video/", d: "Browser-based motion design tool for creating animated content.", p: "Free / Paid" },
-    { name: "Lottie Creator", url: "https://lottiefiles.com/lottie-creator", d: "Visual editor for creating and editing Lottie animations.", p: "Free / Paid", m: true },
-    { name: "Lottielab", url: "https://www.lottielab.com/", d: "Design tool for creating lightweight Lottie and dotLottie animations.", p: "Free / Paid" },
+    { name: "Jitter", url: "https://jitter.video/", d: "Browser-based motion design tool for creating animated content.", p: "Free & Paid" },
+    { name: "Lottie Creator", url: "https://lottiefiles.com/lottie-creator", d: "Visual editor for creating and editing Lottie animations.", p: "Free & Paid", m: true },
+    { name: "Lottielab", url: "https://www.lottielab.com/", d: "Design tool for creating lightweight Lottie and dotLottie animations.", p: "Free & Paid" },
     { name: "Theatre.js", url: "https://www.theatrejs.com/", d: "Open-source animation library and visual editor for JS and Three.js.", p: "Free" },
   ]},
   { cat: "Screen Recording", tools: [
-    { name: "Recordly", url: "https://recordly.dev/", d: "Lightweight macOS screen recorder for quick captures and demos.", p: "Free / Paid" },
+    { name: "Recordly", url: "https://recordly.dev/", d: "Lightweight macOS screen recorder for quick captures and demos.", p: "Free & Paid" },
   ]},
   { cat: "Audio", tools: [
-    { name: "ElevenLabs", url: "https://elevenlabs.io/", d: "AI voice synthesis and cloning platform for realistic speech generation.", p: "Free / Paid", m: true },
-    { name: "FMOD", url: "https://www.fmod.com/", d: "Adaptive audio middleware for games and interactive applications.", p: "Free / Paid" },
+    { name: "ElevenLabs", url: "https://elevenlabs.io/", d: "AI voice synthesis and cloning platform for realistic speech generation.", p: "Free & Paid", m: true },
+    { name: "FMOD", url: "https://www.fmod.com/", d: "Adaptive audio middleware for games and interactive applications.", p: "Free & Paid" },
     { name: "Splice", url: "https://splice.com/features/sounds", d: "Royalty-free sample library and music production marketplace.", p: "Paid" },
-    { name: "Suno", url: "https://suno.com/", d: "AI music generation tool that creates full songs from text prompts.", p: "Free / Paid", m: true },
+    { name: "Suno", url: "https://suno.com/", d: "AI music generation tool that creates full songs from text prompts.", p: "Free & Paid", m: true },
   ]},
   { cat: "3D", tools: [
-    { name: "Bezi", url: "https://www.bezi.com/", d: "Collaborative 3D design tool for creating interactive spatial interfaces.", p: "Free / Paid" },
+    { name: "Bezi", url: "https://www.bezi.com/", d: "Collaborative 3D design tool for creating interactive spatial interfaces.", p: "Free & Paid" },
     { name: "Blender", url: "https://www.blender.org/", d: "Free, open-source 3D creation suite for modeling, animation, and rendering.", p: "Free", m: true },
-    { name: "Houdini", url: "https://www.sidefx.com/", d: "Procedural 3D software for VFX, simulation, and technical art.", p: "Free / Paid", m: true },
-    { name: "Spline", url: "https://spline.design/", d: "Browser-based 3D design tool with real-time collaboration and web export.", p: "Free / Paid", m: true },
+    { name: "Houdini", url: "https://www.sidefx.com/", d: "Procedural 3D software for VFX, simulation, and technical art.", p: "Free & Paid", m: true },
+    { name: "Spline", url: "https://spline.design/", d: "Browser-based 3D design tool with real-time collaboration and web export.", p: "Free & Paid", m: true },
     { name: "Three.js", url: "https://threejs.org/", d: "Open-source JavaScript 3D library for rendering interactive WebGL graphics in the browser.", p: "Free", m: true },
-    { name: "Womp", url: "https://womp.com/", d: "Intuitive browser-based 3D modeling tool with smooth clay-like sculpting.", p: "Free / Paid" },
+    { name: "Womp", url: "https://womp.com/", d: "Intuitive browser-based 3D modeling tool with smooth clay-like sculpting.", p: "Free & Paid" },
   ]},
   { cat: "glTF", tools: [
     { name: "gltfjsx", url: "https://github.com/pmndrs/gltfjsx", d: "CLI tool that converts glTF models into declarative React Three Fiber JSX.", p: "Free" },
@@ -526,16 +541,16 @@ const TOOLS = [
   ]},
   { cat: "Volumetric", tools: [
     { name: "Depthkit", url: "https://www.depthkit.tv/", d: "Volumetric video capture system for creating 3D holograms.", p: "Paid" },
-    { name: "KIRI Engine", url: "https://www.kiriengine.app/", d: "Mobile 3D scanning app using photogrammetry for creating 3D models.", p: "Free / Paid" },
-    { name: "Luma AI", url: "https://lumalabs.ai/interactive-scenes", d: "AI-powered 3D capture and reconstruction from photos and video.", p: "Free / Paid", m: true },
-    { name: "Polycam", url: "https://poly.cam/", d: "LiDAR and photogrammetry 3D scanning app for iOS and web.", p: "Free / Paid" },
+    { name: "KIRI Engine", url: "https://www.kiriengine.app/", d: "Mobile 3D scanning app using photogrammetry for creating 3D models.", p: "Free & Paid" },
+    { name: "Luma AI", url: "https://lumalabs.ai/interactive-scenes", d: "AI-powered 3D capture and reconstruction from photos and video.", p: "Free & Paid", m: true },
+    { name: "Polycam", url: "https://poly.cam/", d: "LiDAR and photogrammetry 3D scanning app for iOS and web.", p: "Free & Paid" },
     { name: "RealityScan", url: "https://www.unrealengine.com/en-US/realityscan", d: "Free photogrammetry app by Epic for scanning objects into 3D models.", p: "Free" },
     { name: "SuperSplat Editor", url: "https://superspl.at/editor", d: "Browser-based editor for viewing and editing 3D Gaussian Splats.", p: "Free" },
   ]},
   { cat: "Whiteboard", tools: [
     { name: "Excalidraw", url: "https://excalidraw.com/", d: "Open-source hand-drawn style whiteboard for quick diagrams and sketches.", p: "Free", m: true },
-    { name: "FigJam", url: "https://www.figma.com/figjam/", d: "Figma's collaborative whiteboard for brainstorming and planning.", p: "Free / Paid", m: true },
-    { name: "Miro", url: "https://miro.com/", d: "Collaborative online whiteboard for teams with extensive integrations.", p: "Free / Paid", m: true },
+    { name: "FigJam", url: "https://www.figma.com/figjam/", d: "Figma's collaborative whiteboard for brainstorming and planning.", p: "Free & Paid", m: true },
+    { name: "Miro", url: "https://miro.com/", d: "Collaborative online whiteboard for teams with extensive integrations.", p: "Free & Paid", m: true },
     { name: "Muse", url: "https://museapp.com/", d: "Spatial canvas app for deep thinking, research, and ideation on iPad and Mac.", p: "Paid" },
     { name: "tldraw", url: "https://www.tldraw.com/", d: "Open-source infinite canvas whiteboard with a clean minimal interface.", p: "Free", m: true },
   ]},
@@ -551,13 +566,13 @@ const TOOLS = [
   ]},
   { cat: "Desktop Utility", tools: [
     { name: "LocalSend", url: "https://localsend.org/", d: "Open-source cross-platform file sharing over local network, no internet needed.", p: "Free" },
-    { name: "Parsec", url: "https://parsec.app/", d: "Ultra-low latency remote desktop streaming for work and gaming.", p: "Free / Paid" },
-    { name: "Raycast", url: "https://www.raycast.com/", d: "Productivity launcher for macOS with extensions, snippets, and AI.", p: "Free / Paid", m: true },
+    { name: "Parsec", url: "https://parsec.app/", d: "Ultra-low latency remote desktop streaming for work and gaming.", p: "Free & Paid" },
+    { name: "Raycast", url: "https://www.raycast.com/", d: "Productivity launcher for macOS with extensions, snippets, and AI.", p: "Free & Paid", m: true },
     { name: "ShareX", url: "https://getsharex.com/", d: "Open-source screen capture and file sharing tool for Windows.", p: "Free" },
-    { name: "Warp", url: "https://www.warp.dev/", d: "Modern terminal with AI command search, blocks, and collaboration.", p: "Free / Paid", m: true },
+    { name: "Warp", url: "https://www.warp.dev/", d: "Modern terminal with AI command search, blocks, and collaboration.", p: "Free & Paid", m: true },
   ]},
   { cat: "Emoji", tools: [
-    { name: "MakeEmoji", url: "https://makeemoji.com/", d: "Tool for creating custom animated emoji and stickers.", p: "Free / Paid" },
+    { name: "MakeEmoji", url: "https://makeemoji.com/", d: "Tool for creating custom animated emoji and stickers.", p: "Free & Paid" },
   ]},
 ];
 
