@@ -118,6 +118,9 @@ header h1{
 .search-field:focus ~ .search-shortcut{
   opacity:0;
 }
+.search-shortcut.show-enter{
+  opacity:1;
+}
 .search-shortcut kbd{
   background:var(--border);
   padding:1px 5px;
@@ -784,8 +787,10 @@ function onSearch(q) {
   const hint = document.getElementById('searchHint');
   if (q && visible.length === 1) {
     hint.innerHTML = '<kbd>&#x21B5;</kbd>';
+    hint.classList.add('show-enter');
   } else {
     hint.innerHTML = '<kbd>&#8984;</kbd><kbd>F</kbd>';
+    hint.classList.remove('show-enter');
   }
 }
 </script>
