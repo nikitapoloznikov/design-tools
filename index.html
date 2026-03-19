@@ -77,7 +77,7 @@ body{
 header{
   padding:28px 0 34px;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   gap:16px;
 }
 header h1{
@@ -144,7 +144,7 @@ header h1{
   display:flex;
   align-items:flex-start;
   gap:8px;
-  font-size:12px;
+  font-size:13px;
   font-weight:400;
   color:var(--text3);
   padding:28px 0 40px 0;
@@ -507,6 +507,7 @@ const TOOLS = [
     { name: "Ghostty", url: "https://ghostty.org/", d: "Fast, native terminal emulator built with Zig for macOS and Linux.", p: "Free", m: true },
     { name: "GitHub Copilot", url: "https://github.com/features/copilot", d: "AI pair programmer that suggests code inline as you type.", p: "Free & Paid", m: true },
     { name: "Lovable", url: "https://lovable.dev/", d: "AI full-stack engineer that builds production web apps from prompts.", p: "Free & Paid", m: true },
+    { name: "MCP Market", url: "https://mcpmarket.com/", d: "Marketplace and directory for discovering and sharing MCP servers and tools.", p: "Free", m: true },
     { name: "Open Claw", url: "https://openclaw.ai/", d: "Open-source personal AI assistant that runs locally and works across apps and browsers.", p: "Free", m: true },
     { name: "OpenAI Codex", url: "https://openai.com/codex/", d: "Cloud-based AI coding agent that runs tasks in a sandbox.", p: "Paid", m: true },
     { name: "Playwright", url: "https://playwright.dev/", d: "Cross-browser end-to-end testing and automation framework by Microsoft.", p: "Free", m: true },
@@ -645,6 +646,7 @@ const DARK_FAVICONS = new Set([
   'www.framer.com',
   'www.designspells.com',
   'penpot.app',
+  'mcpmarket.com',
 ]);
 
 // Favicons that are truly white/light — need inverting in light mode only
@@ -746,6 +748,15 @@ function cycleIdea(){
 }
 showIdea();
 document.querySelectorAll('.idea-gem').forEach(g=>g.addEventListener('click',cycleIdea));
+
+document.addEventListener('mousedown', e => {
+  const sf = document.getElementById('searchField');
+  if (sf.value && !e.target.closest('.search-wrap')) {
+    sf.value = '';
+    onSearch('');
+    sf.blur();
+  }
+});
 
 document.addEventListener('keydown', e => {
   const sf = document.getElementById('searchField');
