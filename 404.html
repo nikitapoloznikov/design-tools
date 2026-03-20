@@ -76,7 +76,6 @@ header h1{
   letter-spacing:-0.01em;
   color:var(--text);
   white-space:nowrap;
-  text-decoration:none;
 }
 header a{text-decoration:none;color:inherit}
 
@@ -106,54 +105,65 @@ header a{text-decoration:none;color:inherit}
   color:var(--text);
 }
 
-.not-found{
-  flex:1;
+.search-wrap{
+  position:relative;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding-bottom:120px;
+  align-items:center;
 }
-.not-found .code{
-  font-size:72px;
-  font-weight:800;
-  letter-spacing:-0.04em;
+.search-field{
+  width:160px;
+  padding:6px 48px 6px 10px;
+  background:var(--surface);
+  border:none;
+  border-radius:8px;
+  font-family:inherit;
+  font-size:12px;
   color:var(--text);
-  line-height:1;
-  margin-bottom:12px;
+  outline:none;
+  transition:width 0.3s, background 0.35s ease, color 0.35s ease;
 }
-.not-found p{
-  font-size:14px;
+.search-field:focus{
+  width:220px;
+}
+.search-field::placeholder{color:var(--text3)}
+.search-shortcut{
+  position:absolute;
+  right:8px;
+  font-size:10px;
   color:var(--text3);
-  margin-bottom:24px;
+  pointer-events:none;
+  display:flex;
+  gap:2px;
+  transition:opacity 0.15s;
 }
-.not-found a{
-  font-size:13px;
+.search-shortcut kbd{
+  background:var(--border);
+  padding:1px 5px;
+  border-radius:3px;
+  font-family:inherit;
+  font-size:9px;
   color:var(--text2);
-  text-decoration:none;
-  border-bottom:1px solid var(--border);
-  padding-bottom:2px;
-  transition:color 0.15s,border-color 0.15s;
-}
-.not-found a:hover{
-  color:var(--hover-text);
-  border-color:var(--text2);
 }
 
-.footer-text{
+.not-found{
   font-size:12px;
+  font-weight:400;
   color:var(--text3);
-  padding:28px 0 40px;
+  padding-top:4px;
 }
 
 @media(max-width:640px){
-  .not-found .code{font-size:56px}
   header h1{font-size:14px}
   .theme-btn{font-size:13px;padding:6px 10px}
+  .search-shortcut{display:none}
 }
 @media(min-width:2200px){
   .container{max-width:1320px}
   header h1{font-size:19px}
-  .not-found .code{font-size:86px}
+  .search-field{width:192px;padding:7px 58px 7px 12px;font-size:14px;border-radius:10px}
+  .search-field:focus{width:264px}
+  .search-shortcut{font-size:12px}
+  .search-shortcut kbd{font-size:11px;padding:2px 6px}
 }
 </style>
 <script>
@@ -171,19 +181,29 @@ header a{text-decoration:none;color:inherit}
       <button class="theme-btn active" data-theme="dark" onclick="setTheme('dark')">Dark</button>
       <button class="theme-btn" data-theme="light" onclick="setTheme('light')">Light</button>
     </div>
+    <div class="search-wrap">
+      <input type="text" class="search-field" id="searchField" placeholder="Search...">
+      <div class="search-shortcut" id="searchHint"><kbd>&#8984;</kbd><kbd>F</kbd></div>
+    </div>
   </header>
-  <div class="not-found">
-    <div class="code">404</div>
-    <p>This page doesn't exist in the garden.</p>
-    <a href="/">Back to The Garden of Code</a>
-  </div>
-  <div class="footer-text">Grown by Orlock · 2026</div>
+  <div class="not-found">404 — This page doesn't exist in the garden.</div>
 </div>
 <script>
 function setTheme(mode) {
   document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === mode));
   document.documentElement.setAttribute('data-theme', mode);
 }
+document.getElementById('searchField').addEventListener('input', function(e) {
+  if (e.target.value) {
+    window.location.href = '/?q=' + encodeURIComponent(e.target.value);
+  }
+});
+document.addEventListener('keydown', function(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'f') {
+    e.preventDefault();
+    document.getElementById('searchField').focus();
+  }
+});
 </script>
 </body>
 </html>

@@ -1083,6 +1083,17 @@ function onSearch(q) {
   }
   document.querySelector('.idea').style.opacity = q ? '0.12' : '';
 }
+// Handle ?q= from 404 page redirect
+(function(){
+  var q = new URLSearchParams(window.location.search).get('q');
+  if (q) {
+    var sf = document.getElementById('searchField');
+    sf.value = q;
+    sf.focus();
+    onSearch(q);
+    history.replaceState(null, '', '/');
+  }
+})();
 </script>
 
 <script>
