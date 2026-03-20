@@ -1,6 +1,6 @@
 # The Garden of Code, Design & Engineering
 
-> Curated directory of instruments for inspiration, engineering, code assist, visuals, motion, 3D, audio & volumetric work.
+> A handpicked collection of tools for code, design and engineering: AI agents, visuals, motion, 3D, audio and more.
 
 Website: https://thegardencode.com/
 
