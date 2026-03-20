@@ -1,6 +1,6 @@
 # The Garden of Code, Design & Engineering
 
-> A handpicked collection of tools for code, design and engineering: AI agents, visuals, motion, 3D, audio and more.
+> A handpicked toolkit for code, design and engineering: AI agents, dev tools, interfaces, visuals, motion, 3D, audio and more.
 
 Website: https://thegardencode.com/
 
