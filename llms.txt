@@ -81,6 +81,7 @@ Website: https://thegardencode.com/
 - ShaderToy (https://www.shadertoy.com/) — Community platform for creating and sharing GLSL fragment shaders. Free. MCP.
 - Sora (https://sora.chatgpt.com/) — OpenAI's AI model for generating realistic videos from text descriptions. Paid. MCP.
 - TouchDesigner (https://derivative.ca/) — Node-based visual programming platform for real-time interactive media. Free & Paid. MCP.
+- Topaz Studio (https://www.topazlabs.com/studio) — AI-powered photo and video enhancement suite for upscaling, denoising, and sharpening. Paid.
 - Unicorn.studio (https://www.unicorn.studio/) — No-code WebGL editor for creating interactive visual effects for websites. Free & Paid.
 
 ## Motion
