@@ -1,0 +1,145 @@
+# The Garden of Code, Design & Engineering
+
+> Curated directory of instruments for inspiration, engineering, code assist, visuals, motion, 3D, audio & volumetric work.
+
+Website: https://thegardencode.com/
+
+## Inspiration
+- 60fps (https://60fps.design/) — Curated gallery of smooth, high-performance web animations. Free.
+- Awwwards (https://www.awwwards.com/) — Web design awards platform showcasing the best digital experiences. Free & Paid.
+- Cosmos (https://www.cosmos.so/) — Visual bookmarking tool for designers to collect and organize references. Free & Paid.
+- Curated Design (https://www.curated.design/) — Hand-picked collection of outstanding web design inspiration. Free.
+- D1S1 (https://d1s1.com/) — Curated design inspiration across digital and print media. Free.
+- Design Spells (https://www.designspells.com/) — Catalog of delightful micro-interactions and UI details from real products. Free.
+- Game UI Database (https://www.gameuidatabase.com/) — Searchable archive of screenshots from game user interfaces. Free.
+- Godly (https://godly.website/) — Curated gallery of the best web design inspiration, updated daily. Free.
+- HUDS+GUIS (https://www.hudsandguis.com/) — Reference library of fictional UI and HUD designs from film and games. Free.
+- Interface In Game (https://interfaceingame.com/) — Collection of in-game UI screenshots organized by game and element. Free.
+- Layers (https://layers.to/explore) — Design community for sharing and discovering creative work. Free.
+- loadmo.re (https://loadmo.re/) — Curated gallery of website loading animations and transitions. Free.
+- Minimal Gallery (https://minimal.gallery/) — Collection of minimal, clean website designs for inspiration. Free.
+- Minimum (https://mnmm.xyz/) — Gallery of visually striking and experimental website designs. Free.
+- Mobbin (https://mobbin.com/) — Extensive library of real mobile and web app UI patterns. Free & Paid.
+- Pinterest (https://pinterest.com/) — Visual discovery platform for collecting and organizing ideas. Free. MCP.
+- Rebrand (https://www.rebrand.gallery/) — Showcase of notable brand identity redesigns and visual evolutions. Free.
+- Saaspo (https://saaspo.com/) — Curated collection of the best SaaS website designs. Free.
+- SearchSystem (https://searchsystem.co/) — Design reference archive spanning graphic, product, and digital design. Free & Paid.
+- SEESAW (https://www.seesaw.website/) — Curated gallery of immersive and interactive website experiences. Free.
+- Supahero (https://www.supahero.io/) — Gallery of hero sections and above-the-fold website designs. Free.
+
+## Components
+- 21st.dev (https://21st.dev/) — AI-powered component registry for React with copy-paste code. Free & Paid. MCP.
+- Component Gallery (https://component.gallery/) — Collection of real-world UI component examples from design systems. Free.
+- Cursify (https://cursify.vercel.app/) — Library of custom cursor effects and animations for websites. Free.
+- Fancy Components (https://www.fancycomponents.dev/) — Collection of animated React components with beautiful interactions. Free.
+- Framer University (https://framer.university/resources) — Educational resources, templates, and components for Framer. Free & Paid.
+- Motion Primitives (https://motion-primitives.com/) — Open-source animated React components built with Framer Motion. Free.
+- NumberFlow (https://number-flow.barvian.me/) — React component for smooth, animated number transitions. Free.
+- React Bits (https://www.reactbits.dev/) — Curated collection of animated React components ready to copy-paste. Free. MCP.
+
+## Code
+- Aider (https://aider.chat/) — Open-source AI pair programming tool that works in your terminal. Free. MCP.
+- Bolt.new (https://bolt.new/) — AI-powered full-stack web app builder that runs entirely in the browser. Free & Paid. MCP.
+- ChatGPT Canvas (https://openai.com/index/introducing-canvas/) — Collaborative coding and writing surface inside ChatGPT. Paid.
+- Claude Code (https://claude.com/product/claude-code) — Agentic CLI tool for coding with Claude directly in your terminal. Paid. MCP.
+- Cline (https://cline.bot/) — Autonomous AI coding agent as a VS Code extension. Free. MCP.
+- cmux (https://cmux.com/) — Native macOS terminal for managing multiple AI coding agents with notifications and context. Free. MCP.
+- Codex (https://openai.com/codex/) — OpenAI's cloud-based coding agent for autonomous task execution. Paid. MCP.
+- Continue (https://www.continue.dev/) — Open-source AI code assistant for VS Code and JetBrains. Free. MCP.
+- Cursor (https://www.cursor.com/) — AI-first code editor built on VS Code with deep model integration. Free & Paid. MCP.
+- Ghostty (https://ghostty.org/) — Fast, native terminal emulator built with Zig for macOS and Linux. Free. MCP.
+- GitHub Copilot (https://github.com/features/copilot) — AI pair programmer that suggests code inline as you type. Free & Paid. MCP.
+- Lovable (https://lovable.dev/) — AI full-stack engineer that builds production web apps from prompts. Free & Paid. MCP.
+- MCP Market (https://mcpmarket.com/) — Marketplace and directory for discovering and sharing MCP servers and tools. Free. MCP.
+- Open Claw (https://openclaw.ai/) — Open-source personal AI assistant that runs locally and works across apps and browsers. Free. MCP.
+- OpenAI Codex (https://openai.com/codex/) — Cloud-based AI coding agent that runs tasks in a sandbox. Paid. MCP.
+- Playwright (https://playwright.dev/) — Cross-browser end-to-end testing and automation framework by Microsoft. Free. MCP.
+- Replit (https://replit.com/) — Browser-based IDE with AI-assisted coding and instant deployment. Free & Paid. MCP.
+- Stitch (https://stitch.withgoogle.com/) — Google's AI-powered design tool for creating and iterating on visual designs. Free. MCP.
+- Superpowers (https://github.com/obra/superpowers) — Composable skills system for coding agents — structured workflow from brainstorming to code review with TDD, subagent dispatch, and git worktrees. Free.
+- v0 by Vercel (https://v0.dev/) — AI tool that generates React UI from text prompts and images. Free & Paid. MCP.
+- Warp (https://www.warp.dev/) — Modern terminal with AI command search, blocks, and collaboration. Free & Paid. MCP.
+- Windsurf (https://codeium.com/windsurf) — AI-powered code editor with agentic coding flows. Free & Paid. MCP.
+- Zed (https://zed.dev/agentic) — High-performance code editor with built-in AI assistant. Free. MCP.
+
+## Interface
+- Figma (https://figma.com) — Collaborative interface design tool with prototyping and dev mode. Free & Paid. MCP.
+- Framer (https://www.framer.com/) — No-code website builder with design-tool-level creative control. Free & Paid. MCP.
+- Penpot (https://penpot.app/) — Open-source design and prototyping tool that works in the browser. Free. MCP.
+- Rive (https://rive.app) — Interactive animation tool for creating runtime graphics for apps and web. Free & Paid. MCP.
+
+## Visual
+- Bitspace (https://bitspace.sh/) — Node-based visual programming environment for creative coding. Free.
+- cables (https://cables.gl/) — Browser-based visual programming tool for creating interactive WebGL content. Free.
+- Midjourney (https://www.midjourney.com/) — AI image generation tool that creates detailed visuals from text prompts. Paid. MCP.
+- Nodes (https://nodes.io/) — Visual canvas for creative coding, data visualization, and generative art. Paid.
+- NodeToy (https://nodetoy.co/) — Visual shader editor for creating GPU shaders without code. Free & Paid.
+- Paper (https://paper.design/) — Professional design tool for composing interfaces on a 2D canvas. Free. MCP.
+- ShaderToy (https://www.shadertoy.com/) — Community platform for creating and sharing GLSL fragment shaders. Free. MCP.
+- Sora (https://sora.chatgpt.com/) — OpenAI's AI model for generating realistic videos from text descriptions. Paid. MCP.
+- TouchDesigner (https://derivative.ca/) — Node-based visual programming platform for real-time interactive media. Free & Paid. MCP.
+- Unicorn.studio (https://www.unicorn.studio/) — No-code WebGL editor for creating interactive visual effects for websites. Free & Paid.
+
+## Motion
+- Cavalry (https://cavalry.scenegroup.co/) — Procedural 2D motion graphics and animation application. Paid. MCP.
+- Easing Editor (https://animejs.com/easing-editor) — Visual editor for creating custom CSS and JS animation easing curves. Free.
+- Easing Functions (https://easings.net/) — Cheat sheet of common easing functions with visual previews and code. Free.
+- Jitter (https://jitter.video/) — Browser-based motion design tool for creating animated content. Free & Paid.
+- Lottie Creator (https://lottiefiles.com/lottie-creator) — Visual editor for creating and editing Lottie animations. Free & Paid. MCP.
+- Lottielab (https://www.lottielab.com/) — Design tool for creating lightweight Lottie and dotLottie animations. Free & Paid.
+- Theatre.js (https://www.theatrejs.com/) — Open-source animation library and visual editor for JS and Three.js. Free.
+
+## Audio
+- ElevenLabs (https://elevenlabs.io/) — AI voice synthesis and cloning platform for realistic speech generation. Free & Paid. MCP.
+- FMOD (https://www.fmod.com/) — Adaptive audio middleware for games and interactive applications. Free & Paid.
+- Splice (https://splice.com/features/sounds) — Royalty-free sample library and music production marketplace. Paid.
+- Suno (https://suno.com/) — AI music generation tool that creates full songs from text prompts. Free & Paid. MCP.
+
+## 3D
+- Bezi (https://www.bezi.com/) — Collaborative 3D design tool for creating interactive spatial interfaces. Free & Paid.
+- Blender (https://www.blender.org/) — Free, open-source 3D creation suite for modeling, animation, and rendering. Free. MCP.
+- Houdini (https://www.sidefx.com/) — Procedural 3D software for VFX, simulation, and technical art. Free & Paid. MCP.
+- Spline (https://spline.design/) — Browser-based 3D design tool with real-time collaboration and web export. Free & Paid. MCP.
+- Three.js (https://threejs.org/) — Open-source JavaScript 3D library for rendering interactive WebGL graphics in the browser. Free. MCP.
+- Womp (https://womp.com/) — Intuitive browser-based 3D modeling tool with smooth clay-like sculpting. Free & Paid.
+
+## glTF
+- gltfjsx (https://github.com/pmndrs/gltfjsx) — CLI tool that converts glTF models into declarative React Three Fiber JSX. Free.
+- gltfpack (https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) — Command-line tool for optimizing and compressing glTF files. Free.
+- Needle Viewer (https://viewer.needle.tools/) — Browser-based glTF viewer with lighting, animation, and debug tools. Free. MCP.
+
+## Fashion
+- CLO (https://www.clo3d.com/) — 3D garment design and simulation software for fashion industry. Paid. MCP.
+- Marvelous Designer (https://www.marvelousdesigner.com/) — 3D clothing simulation tool used in games, film, and fashion. Paid.
+- Style3D (https://www.linctex.com/) — Digital fashion platform for 3D garment design and virtual fitting. Paid.
+
+## Volumetric
+- Depthkit (https://www.depthkit.tv/) — Volumetric video capture system for creating 3D holograms. Paid.
+- KIRI Engine (https://www.kiriengine.app/) — Mobile 3D scanning app using photogrammetry for creating 3D models. Free & Paid.
+- Luma AI (https://lumalabs.ai/interactive-scenes) — AI-powered 3D capture and reconstruction from photos and video. Free & Paid. MCP.
+- Polycam (https://poly.cam/) — LiDAR and photogrammetry 3D scanning app for iOS and web. Free & Paid.
+- RealityScan (https://www.unrealengine.com/en-US/realityscan) — Free photogrammetry app by Epic for scanning objects into 3D models. Free.
+- SuperSplat Editor (https://superspl.at/editor) — Browser-based editor for viewing and editing 3D Gaussian Splats. Free.
+
+## Whiteboard
+- Excalidraw (https://excalidraw.com/) — Open-source hand-drawn style whiteboard for quick diagrams and sketches. Free. MCP.
+- FigJam (https://www.figma.com/figjam/) — Figma's collaborative whiteboard for brainstorming and planning. Free & Paid. MCP.
+- Miro (https://miro.com/) — Collaborative online whiteboard for teams with extensive integrations. Free & Paid. MCP.
+- Muse (https://museapp.com/) — Spatial canvas app for deep thinking, research, and ideation on iPad and Mac. Paid.
+- tldraw (https://www.tldraw.com/) — Open-source infinite canvas whiteboard with a clean minimal interface. Free. MCP.
+
+## Utility
+- Color.review (https://color.review/) — Tool for checking foreground/background color contrast accessibility. Free.
+- Easing Gradients (https://larsenwork.com/easing-gradients/) — Tool for creating smooth, perceptually uniform CSS gradients. Free.
+- LocalSend (https://localsend.org/) — Open-source cross-platform file sharing over local network, no internet needed. Free.
+- OKLCH Color Picker (https://oklch.com/) — Perceptually uniform color picker using the OKLCH color space. Free.
+- Parsec (https://parsec.app/) — Ultra-low latency remote desktop streaming for work and gaming. Free & Paid.
+- Ray.so (https://ray.so/) — Beautiful code snippet image generator with syntax highlighting. Free.
+- Raycast (https://www.raycast.com/) — Productivity launcher for macOS with extensions, snippets, and AI. Free & Paid. MCP.
+- Recordly (https://recordly.dev/) — Lightweight macOS screen recorder for quick captures and demos. Free & Paid.
+- RegExr (https://regexr.com/) — Online tool for learning, building, and testing regular expressions. Free.
+- ShareX (https://getsharex.com/) — Open-source screen capture and file sharing tool for Windows. Free.
+- SVGOMG (https://jakearchibald.github.io/svgomg/) — GUI for SVGO — optimizes and minifies SVG files in the browser. Free.
+
+## Emoji
+- MakeEmoji (https://makeemoji.com/) — Tool for creating custom animated emoji and stickers. Free & Paid.
