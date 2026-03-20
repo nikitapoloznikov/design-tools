@@ -4,36 +4,186 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Not Found — The Garden of Code</title>
+<link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: light)">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: Inter, system-ui, -apple-system, sans-serif;
-    background: #0a0a0a;
-    color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root,html[data-theme="dark"]{
+  --bg:#0a0a0c;
+  --surface:#141416;
+  --border:#222228;
+  --text:#e0e0e0;
+  --text2:#888;
+  --text3:#555;
+  --hover-text:#fff;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg:#f6f1eb;
+    --surface:#ece5dc;
+    --border:#ddd5cb;
+    --text:#2a2420;
+    --text2:#6b5e53;
+    --text3:#a89888;
+    --hover-text:#1a1410;
+    color-scheme:light;
   }
-  .wrap { max-width: 420px; padding: 2rem; }
-  h1 { font-size: 4rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff; }
-  p { font-size: 1rem; color: #888; margin-bottom: 2rem; line-height: 1.6; }
-  a {
-    color: #e0e0e0;
-    text-decoration: none;
-    border-bottom: 1px solid #444;
-    padding-bottom: 2px;
-    transition: border-color 0.2s;
-  }
-  a:hover { border-color: #e0e0e0; }
+}
+html[data-theme="light"]{
+  --bg:#f6f1eb;
+  --surface:#ece5dc;
+  --border:#ddd5cb;
+  --text:#2a2420;
+  --text2:#6b5e53;
+  --text3:#a89888;
+  --hover-text:#1a1410;
+  color-scheme:light;
+}
+
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  transition:background 0.35s ease,color 0.35s ease;
+}
+*{transition-property:color,background,border-color,opacity;transition-duration:0.35s;transition-timing-function:ease}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 24px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  padding:28px 0 34px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+}
+header h1{
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:var(--text);
+  white-space:nowrap;
+  text-decoration:none;
+}
+header a{text-decoration:none;color:inherit}
+
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  gap:2px;
+  background:var(--surface);
+  border-radius:8px;
+  padding:2px;
+  margin-left:auto;
+}
+.theme-btn{
+  background:none;
+  border:none;
+  padding:5px 8px;
+  border-radius:6px;
+  font-family:inherit;
+  font-size:11px;
+  color:var(--text3);
+  cursor:pointer;
+  transition:all 0.15s;
+}
+.theme-btn:hover{color:var(--text2)}
+.theme-btn.active{
+  background:var(--border);
+  color:var(--text);
+}
+
+.not-found{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-bottom:120px;
+}
+.not-found .code{
+  font-size:72px;
+  font-weight:800;
+  letter-spacing:-0.04em;
+  color:var(--text);
+  line-height:1;
+  margin-bottom:12px;
+}
+.not-found p{
+  font-size:14px;
+  color:var(--text3);
+  margin-bottom:24px;
+}
+.not-found a{
+  font-size:13px;
+  color:var(--text2);
+  text-decoration:none;
+  border-bottom:1px solid var(--border);
+  padding-bottom:2px;
+  transition:color 0.15s,border-color 0.15s;
+}
+.not-found a:hover{
+  color:var(--hover-text);
+  border-color:var(--text2);
+}
+
+.footer-text{
+  font-size:12px;
+  color:var(--text3);
+  padding:28px 0 40px;
+}
+
+@media(max-width:640px){
+  .not-found .code{font-size:56px}
+  header h1{font-size:14px}
+  .theme-btn{font-size:13px;padding:6px 10px}
+}
+@media(min-width:2200px){
+  .container{max-width:1320px}
+  header h1{font-size:19px}
+  .not-found .code{font-size:86px}
+}
 </style>
+<script>
+(function(){
+  var d=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',d);
+})();
+</script>
 </head>
 <body>
-<div class="wrap">
-  <h1>404</h1>
-  <p>This page doesn't exist in the garden.</p>
-  <a href="/">Back to The Garden of Code</a>
+<div class="container">
+  <header>
+    <a href="/"><h1>The Garden of Code, Design & Engineering</h1></a>
+    <div class="theme-toggle">
+      <button class="theme-btn active" data-theme="dark" onclick="setTheme('dark')">Dark</button>
+      <button class="theme-btn" data-theme="light" onclick="setTheme('light')">Light</button>
+    </div>
+  </header>
+  <div class="not-found">
+    <div class="code">404</div>
+    <p>This page doesn't exist in the garden.</p>
+    <a href="/">Back to The Garden of Code</a>
+  </div>
+  <div class="footer-text">Grown by Orlock · 2026</div>
 </div>
+<script>
+function setTheme(mode) {
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === mode));
+  document.documentElement.setAttribute('data-theme', mode);
+}
+</script>
 </body>
 </html>
