@@ -1,0 +1,16 @@
+{
+  "name": "The Garden of Code, Design & Engineering",
+  "short_name": "Garden of Code",
+  "description": "Curated instruments for inspiration, engineering, code assist, visuals, motion, 3D, audio & volumetric work.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

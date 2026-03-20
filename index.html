@@ -20,6 +20,9 @@
 <link rel="icon" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon-light.png" media="(prefers-color-scheme: light)">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://www.google.com">
 <link rel="preconnect" href="https://t2.gstatic.com" crossorigin>
@@ -821,7 +824,7 @@ function render() {
   TOOLS.forEach(s => s.tools.sort((a,b) => a.name.localeCompare(b.name, undefined, {sensitivity:'base'})));
   const main = document.getElementById('main');
   main.innerHTML = TOOLS.map(section => `
-    <div class="category" style="opacity:0;transition:opacity 0.45s ease">
+    <div class="category" id="${section.cat.toLowerCase().replace(/\s+/g,'-')}" style="opacity:0;transition:opacity 0.45s ease">
       <h2 class="category-title">${section.cat}</h2>
       <div class="tools-grid">
         ${section.tools.map(t => {
