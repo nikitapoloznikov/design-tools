@@ -150,6 +150,61 @@ header a{text-decoration:none;color:inherit}
   font-weight:400;
   color:var(--text3);
   padding-top:4px;
+  margin-bottom:14px;
+}
+
+.idea{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-size:13px;
+  font-weight:400;
+  color:var(--text3);
+  padding:28px 0 40px 0;
+  line-height:1.5;
+  position:relative;
+}
+#idea{max-width:700px;transition:opacity 0.25s ease}
+.gem-wrap{
+  position:relative;
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  isolation:isolate;
+  background:var(--bg);
+  border-radius:3px;
+  overflow:hidden;
+}
+.idea-gem{
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  object-fit:cover;
+  border-radius:3px;
+  transition:opacity 0.35s ease,transform 0.15s ease;
+  position:absolute;
+  top:0;
+  left:0;
+  cursor:pointer;
+}
+.idea-gem:hover{transform:scale(1.1)}
+.idea-gem:active{transform:scale(0.9)}
+.gem-dark{mix-blend-mode:screen;opacity:1;filter:contrast(1.4) brightness(1.05) blur(0.02px);pointer-events:auto}
+.gem-light{mix-blend-mode:darken;opacity:0;width:53px;height:53px;left:-5px;top:-5px;filter:brightness(1.02);pointer-events:none}
+html[data-theme="light"] .gem-dark{opacity:0;pointer-events:none}
+html[data-theme="light"] .gem-light{opacity:1;pointer-events:auto}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .gem-dark{opacity:0;pointer-events:none}
+  :root:not([data-theme]) .gem-light{opacity:1;pointer-events:auto}
+}
+.footer-text{
+  position:absolute;
+  right:0;
+  bottom:40px;
+  flex-shrink:0;
+  mix-blend-mode:difference;
+  font-size:12px;
+  color:var(--text3);
 }
 
 @media(max-width:640px){
@@ -187,6 +242,7 @@ header a{text-decoration:none;color:inherit}
     </div>
   </header>
   <div class="not-found">404 — This page doesn't exist in the garden.</div>
+  <div class="idea"><span class="gem-wrap"><video class="idea-gem gem-dark" autoplay loop muted playsinline src="gem.mp4"></video><video class="idea-gem gem-light" autoplay loop muted playsinline src="gem-light.mp4"></video></span><span id="idea"></span><span class="footer-text">Grown by Orlock &middot; 2026</span></div>
 </div>
 <script>
 function setTheme(mode) {
@@ -204,6 +260,34 @@ document.addEventListener('keydown', function(e) {
     document.getElementById('searchField').focus();
   }
 });
+var IDEAS=[
+"Use Figma + Claude Code to build a browser extension that analyzes any website's spacing system and generates a clean design token file you can drop into your codebase.",
+"Combine Spline + Rive + Claude Code to create a 3D product configurator where users rotate, customize, and export assets — deployed as a single-page app with no backend.",
+"Use Blender + gltfjsx + Claude Code to build a procedural terrain generator that turns elevation data into an interactive WebGL landscape with flythrough camera controls.",
+"Connect ElevenLabs + Claude Code to build a podcast website that auto-generates episode pages with AI voice summaries, waveform visualizers, and chapter markers from RSS.",
+"Use Excalidraw + Claude Code to build a whiteboard-to-wireframe tool that converts hand-drawn boxes and arrows into a working HTML prototype with proper CSS grid layout.",
+"Build a generative album cover tool with ShaderToy + Suno + Claude Code — enter a genre and mood, get AI-generated music with a matching real-time WebGL visual.",
+"Combine Framer + Claude Code to create a personal website that adapts its layout, typography, and color scheme based on the visitor's local time, weather, and device.",
+"Build a real-time font pairing tool with Claude Code that takes a headline typeface and instantly generates 10 body font recommendations with live preview and contrast scores.",
+"Use Luma AI + Claude Code to build a street-view-style web app for museums — scan galleries with your phone and publish a navigable 3D gaussian splat exhibit online.",
+"Use tldraw + Claude Code to create a diagram-to-infrastructure tool — draw your cloud architecture on a whiteboard and generate working Terraform configs from the shapes.",
+"Use Spline + Claude Code to build a physics-based portfolio where each project is a 3D object on a table — visitors can grab, toss, and stack them with mouse or touch.",
+"Use Blender + Claude Code to create a parametric furniture designer — adjust dimensions with sliders, preview in AR via WebXR, and export manufacturing-ready files.",
+];
+var ideaEl=document.getElementById('idea');
+var lastIdea=-1;
+function showIdea(){
+  var idx;
+  do{idx=Math.floor(Math.random()*IDEAS.length)}while(idx===lastIdea);
+  lastIdea=idx;
+  ideaEl.textContent=IDEAS[idx];
+}
+function cycleIdea(){
+  ideaEl.style.opacity='0';
+  setTimeout(function(){showIdea();ideaEl.style.opacity='1';},250);
+}
+showIdea();
+document.querySelectorAll('.idea-gem').forEach(function(g){g.addEventListener('click',cycleIdea)});
 </script>
 </body>
 </html>
