@@ -49,6 +49,7 @@ Website: https://thegardencode.com/
 - Cursor (https://www.cursor.com/) — AI-first code editor built on VS Code with deep model integration. Free & Paid. MCP.
 - Ghostty (https://ghostty.org/) — Fast, native terminal emulator built with Zig for macOS and Linux. Free. MCP.
 - GitHub Copilot (https://github.com/features/copilot) — AI pair programmer that suggests code inline as you type. Free & Paid. MCP.
+- Google AI Studio (https://aistudio.google.com/) — Google's web IDE for prototyping with Gemini models, multimodal prompts, and API access. Free & Paid. MCP.
 - Lovable (https://lovable.dev/) — AI full-stack engineer that builds production web apps from prompts. Free & Paid. MCP.
 - MCP Market (https://mcpmarket.com/) — Marketplace and directory for discovering and sharing MCP servers and tools. Free. MCP.
 - Open Claw (https://openclaw.ai/) — Open-source personal AI assistant that runs locally and works across apps and browsers. Free. MCP.
@@ -75,6 +76,8 @@ Website: https://thegardencode.com/
 - Nodes (https://nodes.io/) — Visual canvas for creative coding, data visualization, and generative art. Paid.
 - NodeToy (https://nodetoy.co/) — Visual shader editor for creating GPU shaders without code. Free & Paid.
 - Paper (https://paper.design/) — Professional design tool for composing interfaces on a 2D canvas. Free. MCP.
+- Ideogram (https://ideogram.ai/) — AI image generator with strong typography and text rendering in generated visuals. Free & Paid.
+- Recraft (https://www.recraft.ai/) — AI design tool for generating and editing vector and raster graphics with precise style control. Free & Paid.
 - ShaderToy (https://www.shadertoy.com/) — Community platform for creating and sharing GLSL fragment shaders. Free. MCP.
 - Sora (https://sora.chatgpt.com/) — OpenAI's AI model for generating realistic videos from text descriptions. Paid. MCP.
 - TouchDesigner (https://derivative.ca/) — Node-based visual programming platform for real-time interactive media. Free & Paid. MCP.
