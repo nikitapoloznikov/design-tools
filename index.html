@@ -1128,7 +1128,7 @@ setTimeout(function(){
 (function(){
 
 const canvas = document.getElementById('shaderCanvas');
-let gl = canvas.getContext('webgl2', {alpha:false});
+let gl = canvas.getContext('webgl2', {alpha:true, premultipliedAlpha:true});
 if(!gl){console.warn('No WebGL2');return;}
 gl.getExtension('EXT_color_buffer_half_float');
 gl.getExtension('EXT_color_buffer_float');
