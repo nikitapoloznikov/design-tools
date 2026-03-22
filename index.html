@@ -281,6 +281,15 @@ html[data-theme="light"] .tooltip .tt-icon.invert-dark{
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .tooltip .tt-icon.invert-dark{ filter:none; }
 }
+.tooltip .tt-icon.invert-light{
+  filter:none;
+}
+html[data-theme="light"] .tooltip .tt-icon.invert-light{
+  filter:invert(1) brightness(2);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .tooltip .tt-icon.invert-light{ filter:invert(1) brightness(2); }
+}
 .tooltip .tt-body{flex:1;min-width:0}
 .tooltip .tt-desc{color:var(--text);display:block;margin-bottom:12px}
 .tooltip .tt-meta{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
@@ -326,6 +335,15 @@ html[data-theme="light"] .tool-favicon.invert-dark{
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) .tool-favicon.invert-dark{ filter:none; }
+}
+.tool-favicon.invert-light{
+  filter:none;
+}
+html[data-theme="light"] .tool-favicon.invert-light{
+  filter:invert(1) brightness(2);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .tool-favicon.invert-light{ filter:invert(1) brightness(2); }
 }
 
 .tool-name{
@@ -845,6 +863,9 @@ const DARK_FAVICONS = new Set([
 ]);
 
 // Favicons that are truly white/light — need inverting in light mode only
+const LIGHT_FAVICONS = new Set([
+  'www.are.na',
+]);
 
 function render() {
   TOOLS.forEach(s => s.tools.sort((a,b) => a.name.localeCompare(b.name, undefined, {sensitivity:'base'})));
@@ -856,7 +877,7 @@ function render() {
         ${section.tools.map(t => {
           let host = '';
           try { host = new URL(t.url).hostname; } catch {}
-          const cls = (DARK_FAVICONS.has(host) && !LETTER_FAVICONS.has(host)) ? ' invert-dark' : '';
+          const cls = (DARK_FAVICONS.has(host) && !LETTER_FAVICONS.has(host)) ? ' invert-dark' : LIGHT_FAVICONS.has(host) ? ' invert-light' : '';
           const mcp = t.m ? ' · MCP' : '';
           return `<a class="tool-card" href="${t.url}" target="_blank" rel="noopener" data-d="${t.d}" data-p="${t.p}${mcp}">
             <img class="tool-favicon${cls}" src="${getFaviconUrl(t.url, t.name)}" alt="" loading="lazy" onload="this.style.opacity='1'">
@@ -1229,7 +1250,7 @@ if (window.matchMedia('(min-width:641px)').matches) {
     const openHint = showOpen ? '<span class="tt-open"><kbd><span class="shimmer" style="display:inline-block;transform:translate(2px,3px)">&#x21B5;</span></kbd><kbd><span class="shimmer">Open</span></kbd></span>' : '';
     const faviconImg = card.querySelector('.tool-favicon');
     const faviconVisible = faviconImg && faviconImg.style.display !== 'none' && faviconImg.src;
-    const invertCls = faviconImg && faviconImg.classList.contains('invert-dark') ? ' invert-dark' : '';
+    const invertCls = faviconImg && faviconImg.classList.contains('invert-dark') ? ' invert-dark' : faviconImg && faviconImg.classList.contains('invert-light') ? ' invert-light' : '';
     const iconHtml = faviconVisible ? `<img class="tt-icon${invertCls}" src="${faviconImg.src}" alt="">` : '';
     tip.innerHTML = `${iconHtml}<div class="tt-body"><span class="tt-desc">${card.dataset.d}</span><span class="tt-meta">${badges}${openHint}</span></div>`;
     const r = card.getBoundingClientRect();
