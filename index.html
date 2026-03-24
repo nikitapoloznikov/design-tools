@@ -662,7 +662,7 @@ html[data-theme="light"] .shader-wrap{
   <h2>Soundtrack</h2>
   <ul>
     <li><a href="https://musicforprogramming.net/">musicForProgramming</a> — Curated series of ambient and focus mixes designed for coding sessions.</li>
-    <li><a href="https://y2kradio.net/">🌿 Y2K Radio</a> — Retro-themed web radio streaming jungle, drum and bass, and breakbeat.</li>
+    <li><a href="https://y2kradio.net/">Y2K Radio</a> — Retro-themed web radio streaming jungle, drum and bass, and breakbeat.</li>
   </ul>
   </noscript>
   <div class="idea" style="opacity:0;transition:opacity 0.6s ease"><span class="gem-wrap" style="opacity:0;transition:opacity 0.8s ease"><video class="idea-gem gem-dark" autoplay loop muted playsinline></video><video class="idea-gem gem-light" autoplay loop muted playsinline></video></span><span id="idea"></span><span class="footer-text">Grown by Orlock &middot; 2026</span></div>
@@ -817,7 +817,7 @@ const TOOLS = [
   ]},
   { cat: "Soundtrack", tools: [
     { name: "musicForProgramming", url: "https://musicforprogramming.net/", d: "Curated series of ambient and focus mixes designed for coding sessions.", p: "Free" },
-    { name: "🌿 Y2K Radio", url: "https://y2kradio.net/", d: "Retro-themed web radio streaming jungle, drum and bass, and breakbeat.", p: "Free" },
+    { name: "Y2K Radio", url: "https://y2kradio.net/", d: "Retro-themed web radio streaming jungle, drum and bass, and breakbeat.", p: "Free" },
   ]},
 ];
 
@@ -835,6 +835,11 @@ const LETTER_FAVICONS = new Set([
   'www.shadertoy.com','bitspace.sh','jakearchibald.github.io'
 ]);
 
+// Sites that use an emoji as favicon
+const EMOJI_FAVICONS = {
+  'y2kradio.net': '🌿',
+};
+
 function makeLetterFavicon(name) {
   const letter = name.charAt(0).toUpperCase();
   return `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><rect width="64" height="64" rx="12" fill="%23888"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="36" font-weight="600">${letter}</text></svg>`)}`;
@@ -843,6 +848,7 @@ function makeLetterFavicon(name) {
 function getFaviconUrl(url, name) {
   try {
     const u = new URL(url);
+    if (EMOJI_FAVICONS[u.hostname]) return `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="48">${EMOJI_FAVICONS[u.hostname]}</text></svg>`)}`;
     if (LETTER_FAVICONS.has(u.hostname)) return makeLetterFavicon(name || u.hostname);
     if (DIRECT_FAVICONS[u.hostname]) return DIRECT_FAVICONS[u.hostname];
     return `https://www.google.com/s2/favicons?domain=${u.hostname}&sz=64`;
